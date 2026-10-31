@@ -1,0 +1,4 @@
+# 3.3 Blind Spots
+Three tickets included a request for an exchange (a non-monetary refund action). The tickets could not be resolved by answering a question, and the request fell outside of what the policy was set up to address. Examples were ordering the wrong color and wanting the correct color, ordering a set of 6 but only 5 arrived, and ordering a peronalized item with a spelling error. At least one of the tickets only included the issue, but did not make a specific request (refund or exchange).
+
+The Policy could be updated to account for exchanges. This could be a separate action (like "process exchange"), OR it could be treated as a refund, that gives the customer the amount of money to replace their incorrect item.
