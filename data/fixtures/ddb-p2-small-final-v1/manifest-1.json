@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-10-31T20:52:43.272695+00:00",
+  "source": "dynamodb:us-east-1:triage-inferences",
+  "input_sha256": null,
+  "dataset_file": "data\\datasets\\small.json",
+  "dataset_name": "small",
+  "dataset_sha256": "c466b2c57072365f905262a601900e5dd61c2bc084e53bc25738963a7b49c3a5",
+  "source_condition": "p2-small-final-v1",
+  "output_condition": "ddb-p2-small-final-v1",
+  "run": 1,
+  "utc_days": [
+    "2026-10-31"
+  ],
+  "fixture_sha256": "442189cf265b3cee8085d08666034c72b8b9305b7ee6303237d50d8478ccb062",
+  "expected": 10,
+  "table_outcomes": 9,
+  "missing_case_ids": [
+    "v004"
+  ],
+  "builds": [
+    "2026-10-31.2040"
+  ],
+  "synthetic_records": 1,
+  "action_counts": {
+    "refund": 5,
+    "escalate": 2,
+    "error": 1,
+    "answer": 1,
+    "hold": 1
+  }
+}

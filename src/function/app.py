@@ -89,7 +89,7 @@ class TriageRequest(BaseModel):
     case_id: str | None = None
     dataset: str | None = None
     condition: str | None = None
-    run: int | None = None
+    run: int | None = Field(default=None, ge=1)
     policy_in: Literal["user", "system"] = "user"
 
 
@@ -169,17 +169,28 @@ def triage_endpoint(
             "triage",
             started,
             cold,
-            latency_ms=rec["latency_ms"],
-            action=rec["action"],
-            refund_amount=rec.get("refund_amount"),
-            parsed=rec["action"] != "error",
-            error=rec.get("error"),
-            model=rec.get("model"),
+            action="error",
+            parsed=False,
+            error="provider",
+            model=DEFAULT_MODEL,
             policy_in=req.policy_in,
             **eval_metadata,
         )
         raise HTTPException(status_code=503, detail=str(e))
+
     rec["function"] = _meta(started, cold)
-    record_inference(request, "triage", started, cold, latency_ms=rec["latency_ms"], action=rec["action"],
-                     refund_amount=rec.get("refund_amount"), parsed=rec["action"] != "error", model=rec.get("model"), policy_in=req.policy_in)
+    record_inference(
+        request,
+        "triage",
+        started,
+        cold,
+        latency_ms=rec["latency_ms"],
+        action=rec["action"],
+        refund_amount=rec.get("refund_amount"),
+        parsed=rec["action"] != "error",
+        error=rec.get("error"),
+        model=rec.get("model"),
+        policy_in=req.policy_in,
+        **eval_metadata,
+    )
     return rec
